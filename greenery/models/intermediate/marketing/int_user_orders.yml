@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: int_user_orders
+    description: Detailed user order records, if an user makes an order.
+    columns:
+      - name: user_id
+        description: Unique user identifier
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_postgres_users')
+              field: user_id
+
+

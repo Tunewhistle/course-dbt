@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: int_product_events
+    description: User events with product information
+    columns:
+      - name: event_id
+        description: Unique event identifier
+        tests:
+          - not_null
+      - name: event_type
+        description: User's page event type
+        tests:
+          - accepted_values:
+              values: ['page_view', 'add_to_cart', 'checkout', 'package_shipped']
+              config:
+                where: "event_type IS NOT NULL"
