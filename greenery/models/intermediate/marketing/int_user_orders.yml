@@ -4,7 +4,7 @@ models:
   - name: int_user_orders
     description: Detailed user order records, if an user makes an order.
     tests:
-    - unique_combination_of_columns:
+    - dbt_utils.unique_combination_of_columns:
         combination_of_columns:
         - user_id
         - order_id
